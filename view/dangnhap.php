@@ -11,7 +11,7 @@
     <form class="login-form" action="../process/dangnhap.php">
       <input type="text" name="" placeholder="Tài Khoản"/>
       <input type="password" name="" placeholder="Mật khẩu"/>
-      <button>login</button>
+      <button>Đăng nhập</button>
       <p class="message">Bạn chưa có tài khoản? <a href="dangki.php">Đăng kí</a></p>
     </form>
   </div>

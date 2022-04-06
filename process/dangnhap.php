@@ -19,7 +19,7 @@
             }
 
         }
-        echo 'đăng nhập thất bại';
+        header("Location: ../view/dangnhap.php?info='Đăng nhập thất bại'");
         
 
       

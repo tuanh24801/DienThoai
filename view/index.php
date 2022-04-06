@@ -1,4 +1,6 @@
-<?php require './partice/header.php';?>
+<?php 
+    require './partice/header.php';
+?>
     <div class="content">
         <div class="td">
             <p>
@@ -6,51 +8,23 @@
             </p>
         </div>
         <div class="box">
-            <div class="sp1">
-                <p class="tsp"><a href="">OPPO</a></p>
-                <img src="IMAGES/IMG (3).jpg" alt="">
-                <p class="gg">9.500.000đ</p>
-                <p class="gm">9.000.000đ</p>
-            </div>
-            <div class="sp1">
-                <p class="tsp"><a href="">OPPO</a></p>
-                <img src="IMAGES/IMG (3).jpg" alt="">
-                <p class="gg">9.500.000đ</p>
-                <p class="gm">9.000.000đ</p>
-            </div>
-            <div class="sp2">
-                <p class="tsp"><a href="">OPPO</a></p>
-                <img src="IMAGES/IMG (3).jpg" alt="">
-                <p class="gg">9.500.000đ</p>
-                <p class="gm">9.000.000đ</p>
-            </div>
+            <?php 
+                $sql = "SELECT * FROM sanpham";
+                $result = mysqli_query($conn,$sql);
+                while ($row = mysqli_fetch_assoc($result)){
+                   ?>
+                        <div class="sp1">
+                            <p class="tsp"><a href=""><?php echo $row['ten'] ?></a></p>
+                            <img src="IMAGES/sanpham/<?php echo $row['anhsanpham'] ?>" alt="">
+                            <p class="gg"><?php echo $row['gia'] ?></p>
+                            <p class="gm"><?php echo $row['gia'] ?></p>
+                        </div>
+                   <?php
+                }
+            ?>
+          
         </div>
         
-        <div class="td">
-            <p>
-                SẢN PHẨM MỚI
-            </p>
-        </div>
-        <div class="box">
-            <div class="sp1">
-                <p class="tsp"><a href="">OPPO</a></p>
-                <img src="IMAGES/IMG (3).jpg" alt="">
-                <p class="gg">9.500.000đ</p>
-                <p class="gm">9.000.000đ</p>
-            </div>
-            <div class="sp1">
-                <p class="tsp"><a href="">OPPO</a></p>
-                <img src="IMAGES/IMG (3).jpg" alt="">
-                <p class="gg">9.500.000đ</p>
-                <p class="gm">9.000.000đ</p>
-            </div>
-            <div class="sp2">
-                <p class="tsp"><a href="">OPPO</a></p>
-                <img src="IMAGES/IMG (3).jpg" alt="">
-                <p class="gg">9.500.000đ</p>
-                <p class="gm">9.000.000đ</p>
-            </div>
-        </div>
         
     </div>
     <?php require './partice/footer.php';?>

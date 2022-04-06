@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+    require '../core/connection.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +21,26 @@
             <li><a href="">Điện Thoại</a></li>
             <li><a href="">Máy Tính</a></li>
             <li><a href="">Máy Tính Bảng</a></li>
-            <li><a href="dangnhap.php">Đăng Nhập </a></li>
-            <li><a href="giohang.php">Giỏ Hàng</a></li>
+            <?php 
+                if(!isset($_SESSION['nguoidung'])){
+                ?>
+                    <li><a href="dangnhap.php">Đăng Nhập </a></li>
+                    <li><a href="giohang.php">Giỏ Hàng</a></li>
+                <?php
+                }else{
+                    $id = $_SESSION['nguoidung'];
+                    $sql = "SELECT tentaikhoan FROM taikhoan WHERE id = '$id'";
+                    $result = mysqli_query($conn,$sql);
+                    $row = mysqli_fetch_assoc($result);
+                ?>
+                    <li><a href="dangnhap.php"><?php echo $row['tentaikhoan']?> </a></li>
+                    <li><a href="giohang.php">Giỏ Hàng</a></li>
+                    <li><a href="../process/dangxuat.php">Đăng xuất </a></li>
+                <?php
+                }
+            ?>
+            
+            
         </ul>
         <ul>
             <form action="">

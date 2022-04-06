@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     if(isset($_POST['btndangnhap'])){
         $taikhoan = $_POST['taikhoan'];
         $matkhau = $_POST['matkhau'];
@@ -9,9 +10,9 @@
         $result = mysqli_query($conn,$sql);
         if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_assoc($result)){
-                
                 if($row['tentaikhoan'] == $taikhoan && $row['matkhau'] == $matkhau){
-                    echo 'đăng nhập thành công';
+                    $_SESSION['nguoidung'] = $row['id'];
+                    header('Location: ../view/index.php');
                     die();
                 }
 

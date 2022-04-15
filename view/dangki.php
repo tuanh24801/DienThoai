@@ -9,10 +9,10 @@
   <div class="form">
     
     <form class="login-form" action="../process/dangki.php" method="POST">
-      <input type="text" placeholder="Tài Khoản"/>
-      <input type="password" placeholder="Mật Khẩu"/>
-      <input type="text" placeholder="Nhập lại mật khẩu"/>
-      <button>Đăng kí</button>      
+      <input type="text" name ="taikhoan" placeholder="Tài Khoản"/>
+      <input type="password" name="matkhau" placeholder="Mật Khẩu"/>
+      <input type="text" name = "matkhau2" placeholder="Nhập lại mật khẩu"/>
+      <button type="submit " name="btndangki">Đăng kí</button>      
     </form>
     </div>
 </div>   

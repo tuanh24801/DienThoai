@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2022 at 06:53 PM
+-- Generation Time: Apr 15, 2022 at 07:43 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `dienthoai`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `giohang`
+--
+
+CREATE TABLE `giohang` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `id_nguoidung` int(11) NOT NULL,
+  `id_sanpham` int(11) NOT NULL,
+  `soluong` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `giohang`
+--
+
+INSERT INTO `giohang` (`id`, `id_nguoidung`, `id_sanpham`, `soluong`) VALUES
+(4, 1, 3, 4),
+(5, 1, 2, 2),
+(6, 1, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -45,9 +67,36 @@ INSERT INTO `sanpham` (`id`, `ten`, `gia`, `anhsanpham`) VALUES
 (4, 'IPHONE14', 22222200, 'IMG (3).jpg'),
 (5, 'IPHONE15', 33333300, 'IMG (3).jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `taikhoan`
+--
+
+CREATE TABLE `taikhoan` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `tentaikhoan` varchar(255) NOT NULL,
+  `matkhau` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `taikhoan`
+--
+
+INSERT INTO `taikhoan` (`id`, `tentaikhoan`, `matkhau`) VALUES
+(1, 'tuananh', '123'),
+(2, 'tuananh1', '1234'),
+(3, 'tuananh2', '123');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `giohang`
+--
+ALTER TABLE `giohang`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `sanpham`
@@ -56,14 +105,32 @@ ALTER TABLE `sanpham`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `taikhoan`
+--
+ALTER TABLE `taikhoan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `giohang`
+--
+ALTER TABLE `giohang`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `sanpham`
 --
 ALTER TABLE `sanpham`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `taikhoan`
+--
+ALTER TABLE `taikhoan`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

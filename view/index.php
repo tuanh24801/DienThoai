@@ -1,30 +1,26 @@
 <?php 
     require './partice/header.php';
 ?>
-    <div class="content">
-        <div class="td">
-            <p>
-                KHUYẾN MÃI HOT
-            </p>
-        </div>
-        <div class="box">
+    <div class="container">
+        <div class="row p-5">
             <?php 
                 $sql = "SELECT * FROM sanpham";
                 $result = mysqli_query($conn,$sql);
                 while ($row = mysqli_fetch_assoc($result)){
-                   ?>
-                        <div class="sp1">
-                            <p class="tsp"><a href=""><?php echo $row['ten'] ?></a></p>
-                            <img src="IMAGES/sanpham/<?php echo $row['anhsanpham'] ?>" alt="">
-                            <p class="gg"><?php echo $row['gia'] ?></p>
-                            <p class="gm"><?php echo $row['gia'] ?></p>
+                    ?>
+                        <div class="col-3 p-5">
+                            <div class="card p-3" style="width: 18rem;">
+                                    <p class="tsp"><a href="chitietsanpham.php?id=<?php echo $row['id']?>"><?php echo $row['ten'] ?></a></p>
+                                    <a href="chitietsanpham.php?id=<?php echo $row['id']?>"> <img src="IMAGES/sanpham/<?php echo $row['anhsanpham'] ?>" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <p class="gg"><?php echo $row['gia'] ?></p>
+                                        <p class="gm"><?php echo $row['gia'] ?></p>
+                                    </div>
+                            </div>
                         </div>
-                   <?php
+                    <?php
                 }
             ?>
-          
         </div>
-        
-        
     </div>
-    <?php require './partice/footer.php';?>
+<?php require './partice/footer.php';?>

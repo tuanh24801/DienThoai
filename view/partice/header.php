@@ -20,9 +20,7 @@
     <div class="menu">
         <ul>
             <li><a href="../index.php">Trang chủ</a></li>
-            <li><a href="">Điện Thoại</a></li>
-            <li><a href="">Máy Tính</a></li>
-            <li><a href="">Máy Tính Bảng</a></li>
+            
             <?php 
                 if(!isset($_SESSION['nguoidung'])){
                 ?>
@@ -45,8 +43,8 @@
             
         </ul>
         <ul>
-            <form action="">
-                <input type="text" required class="nhap">
+            <form action="./timkiem.php" method = "post">
+                <input type="text" required class="nhap" name="timkiem">
                 <input type="submit" value="Tìm Kiếm" class="timkiem">
             </form>
         </ul>

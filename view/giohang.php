@@ -3,9 +3,17 @@
     if(isset($_SESSION['nguoidung'])){
         $id_nguoidung = $_SESSION['nguoidung'];
     }
-    $sql = "SELECT tentaikhoan FROM taikhoan WHERE $id_nguoidung";
+    $sql = "SELECT tentaikhoan FROM taikhoan WHERE id ='$id_nguoidung'";
     $result = mysqli_query($conn,$sql);
     $row = mysqli_fetch_assoc($result);
+    // $check = "SELECT id_sanpham  FROM giohang WHERE id_nguoidung='$id_nguoidung'";
+    // $check1 = mysqli_query($conn,$check);
+    // if(mysqli_num_rows($check1)<=0){
+    //     echo "khong co gi" ;
+    //     die();
+    // }
+    
+
     
 ?>
     <div class="container p-4">
@@ -23,7 +31,7 @@
                 <tbody>
                     <?php
                         $tong = 0;
-                        $i = 1; 
+                        // $i = 1; 
                         $sql_sp = "SELECT id_sanpham FROM giohang WHERE id_nguoidung = '$id_nguoidung'";
                         $result_sp = mysqli_query($conn,$sql_sp);
                         while($row_sp = mysqli_fetch_assoc($result_sp)){
@@ -55,7 +63,15 @@
         <div class="row">
                         
             <h3>Tổng tiền: <?php echo $tong?></h3>
+        
         </div>
+        <div class="row">
+                        
+            <a href="../process/thanhtoan.php" class ="btn btn-success">Thanh Toán</a>
+        
+        </div>
+        
     </div>
+    
 
 <?php require './partice/footer.php';?>

@@ -18,7 +18,7 @@
             die();
         }
     }
-    $sql = "INSERT INTO giohang(id_nguoidung, id_sanpham, soluong) VALUES ('$id_nguoidung', '$id_sanpham' , '1')";
+    $sql = "INSERT INTO giohang(id_nguoidung, id_sanpham, soluong) VALUES ('$id_nguoidung', '$id_sanpham' , '$soluong')";
     $result = mysqli_query($conn,$sql);
     if($result){
         header("Location: ../view/giohang.php");

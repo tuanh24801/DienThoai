@@ -1,5 +1,9 @@
 <?php 
     require './partice/header.php';
+    if(!isset($_SESSION['nguoidung'])){
+       header("location: dangnhap.php?info=Vui lòng đăng nhập để vào giỏ hàng");
+       die();
+    }
     if(isset($_SESSION['nguoidung'])){
         $id_nguoidung = $_SESSION['nguoidung'];
     }

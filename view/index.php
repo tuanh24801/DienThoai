@@ -12,7 +12,7 @@
                         <div class="col-3 mb-3">
                             <div class="card" style="width: 18rem;">
                                 <p class="text-center"><a href="chitietsanpham.php?id=<?php echo $row['id']?>"><?php echo $row['ten'] ?></a></p>
-                                <a href="chitietsanpham.php?id=<?php echo $row['id']?>"><img src="IMAGES/sanpham/<?php echo $row['anhsanpham'] ?>" class="card-img-top" alt="..."></a> 
+                                <a href="chitietsanpham.php?id=<?php echo $row['id']?>"><img src="IMAGES/sanpham/<?php echo $row['anhsanpham'] ?>" style = "width: 100%; height:370px;" class="card-img-top" alt="..."></a> 
                                 <div class="card-body">
                                     <p class="text-center text-dark"><?php echo $row['gia']; ?></p>
                                 </div>

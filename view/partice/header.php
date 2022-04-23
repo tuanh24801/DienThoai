@@ -45,8 +45,8 @@
                         }
                     ?>
                 </ul>
-                <form class="d-flex formtimkiem">
-                    <input class="form-control me-2" type="search" placeholder="Nhập tên sản phẩm" aria-label="Search">
+                <form class="d-flex formtimkiem" method="post" action="./timkiem.php">
+                    <input class="form-control me-2" name = "timkiem" type="search" placeholder="Nhập tên sản phẩm" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit" style = "width: 200px;"><b>tìm kiếm</b> </button>
                 </form>
                 </div>

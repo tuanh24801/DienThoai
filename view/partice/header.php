@@ -19,7 +19,7 @@
     </div>
     <div class="menu">
         <ul>
-            <li><a href="../index.php">Trang chủ</a></li>
+            <li><a href="../index.php">Trang chủ </a></li>
             
             <?php 
                 if(!isset($_SESSION['nguoidung'])){

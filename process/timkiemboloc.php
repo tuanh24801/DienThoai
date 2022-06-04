@@ -1,7 +1,7 @@
 <?php 
+    $WHERE = " ";
     if(isset($_POST['btntkboloc'])){
         $mauArr = [];
-        $WHERE = " ";
         $selectColor = "SELECT DISTINCT mau FROM sanpham ";
         $con = mysqli_connect('localhost', 'root', '', 'dienthoai');
         $query = mysqli_query($con,$selectColor);

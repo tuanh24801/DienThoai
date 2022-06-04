@@ -9,7 +9,7 @@
     $sql_check = "SELECT * FROM giohang WHERE id_nguoidung = '$id_nguoidung'";
     $result_check = mysqli_query($conn,$sql_check);
     while( $row_check = mysqli_fetch_assoc($result_check)){
-        if($row_check['id_sanpham'] == $id_sanpham){
+        if($row_check['id_sanpham'] == $id_sanpham && $row_check['isBuy'] == '0'){
             $sql_update_sp = "UPDATE giohang SET soluong = soluong + '$soluong' WHERE id_nguoidung = '$id_nguoidung' AND id_sanpham = '$id_sanpham'";
             $result_update_sp = mysqli_query($conn,$sql_update_sp);
             if($result_update_sp){
@@ -18,7 +18,7 @@
             die();
         }
     }
-    $sql = "INSERT INTO giohang(id_nguoidung, id_sanpham, soluong) VALUES ('$id_nguoidung', '$id_sanpham' , '$soluong')";
+    $sql = "INSERT INTO giohang(id_nguoidung, id_sanpham, soluong, isBuy) VALUES ('$id_nguoidung', '$id_sanpham' , '$soluong', '0')";
     $result = mysqli_query($conn,$sql);
     if($result){
         header("Location: ../view/giohang.php");

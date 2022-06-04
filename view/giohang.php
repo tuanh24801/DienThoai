@@ -36,27 +36,30 @@
                     <?php
                         $tong = 0;
                         // $i = 1; 
-                        $sql_sp = "SELECT id_sanpham FROM giohang WHERE id_nguoidung = '$id_nguoidung'";
+                        $sql_sp = "SELECT id_sanpham FROM giohang WHERE id_nguoidung = '$id_nguoidung' AND isBuy = '0'";
                         $result_sp = mysqli_query($conn,$sql_sp);
                         while($row_sp = mysqli_fetch_assoc($result_sp)){
                             $id_sp = $row_sp['id_sanpham'];
                             $sql_chitietsp = "SELECT * FROM sanpham WHERE id = '$id_sp'";
                             $result_chitietsp = mysqli_query($conn,$sql_chitietsp);
                             $row_chitietsp = mysqli_fetch_assoc($result_chitietsp);
-                            $sql_soluong = "SELECT soluong FROM giohang WHERE id_nguoidung = '$id_nguoidung' AND id_sanpham = '$id_sp'";
+                            $sql_soluong = "SELECT * FROM giohang WHERE id_nguoidung = '$id_nguoidung' AND id_sanpham = '$id_sp' AND isBuy = '0'";
                             $result_soluong = mysqli_query($conn,$sql_soluong);
-                            $row_soluong = mysqli_fetch_assoc($result_soluong);
-                            $tong = $tong + $row_soluong['soluong']*$row_chitietsp['gia'];
-                            ?>
-                                <tr>
-                                    <th><?php echo $row_chitietsp['ten'];?></th>
-                                    <th><?php echo $row_chitietsp['gia'];?></th>
-                                    <th><?php echo $row_soluong['soluong'];?></th>
-                                    <th><?php echo $row_soluong['soluong']*$row_chitietsp['gia'];?></th>
+                            if(mysqli_num_rows($result_soluong) > 0){
+                                $row_soluong = mysqli_fetch_assoc($result_soluong);
+                                $id_giohang = $row_soluong['id'];
+                                $tong = $tong + $row_soluong['soluong']*$row_chitietsp['gia'];
+                                ?>
+                                    <tr>
+                                        <th><?php echo $row_chitietsp['ten'];?></th>
+                                        <th><?php echo $row_chitietsp['gia'];?></th>
+                                        <th><?php echo $row_soluong['soluong'];?></th>
+                                        <th><?php echo $row_soluong['soluong']*$row_chitietsp['gia'];?></th>
+                                        
+                                    </tr>
                                     
-                                </tr>
-                                
-                            <?php
+                                <?php
+                            }
                             
                         }
                     

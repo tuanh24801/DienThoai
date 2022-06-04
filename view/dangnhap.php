@@ -17,7 +17,7 @@
       <?php
         if(isset($_GET['info'])){
           ?>
-            <p><?php echo $_GET['info'] ?> </p>    
+            <p><b><?php echo $_GET['info'] ?> </b></p>    
           <?php
         }else{
           echo '';
